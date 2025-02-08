@@ -1,0 +1,60 @@
+body {
+    font-family: Arial;
+}
+
+#mainImg {
+    width: 35%;
+}
+#spidy {
+    width: 50%;
+}
+
+.box {
+    border: 0.25px solid black;
+    background-color: lightgray;
+    width: 200px;
+    padding: 1rem;
+}
+
+.boxLink {
+    text-decoration: none;
+}
+
+.oldImg {
+    height: 200px;
+    width: 200px;
+    margin-right: 1rem;
+}
+
+#description {
+    background-color: antiquewhite;
+}
+
+/*adding class from terminal;*/
+.green{
+    color: green;
+    background-color: #00ff335b;
+    text-decoration: underline;
+}
+.colorbg{
+    background-color: yellow;
+}
+.active{
+    background-color: green;
+    color: white;
+    border: 2px solid black;
+}
+span{
+    color: blue;
+    display: flex;
+    justify-content: center;
+    
+}
+/* Define styles for hiding the element */
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}

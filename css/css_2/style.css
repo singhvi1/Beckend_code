@@ -1,0 +1,115 @@
+/* *{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif  ;
+    background-color:white;
+    
+} */
+h1,h3{
+    color: #800000;
+}
+#login{
+    background-color: rgba(255, 255, 255, 0.262);
+    color: black;
+}
+#signup{
+    background-color: #800000;
+    color: white;
+}
+.upvote{
+background-color: green;}
+
+/* 1st  method */
+#myid1 p{
+    color: green;
+}
+/* 2nd method  */
+div[id="myid2"] p {
+    color: pink;
+}
+
+/* p a{
+    color: purple;
+    background-color: yellow;
+} */
+
+/* Desendent selectors ; */
+.post  a {
+    background-color: yellow;
+    color: purple;
+}
+/* nav ul {
+    color: hotpink;
+}
+nav ul li {
+    color: hotpink;
+} */
+/* nav ul li a  {
+    color: hotpink;
+} */
+nav ul {
+    list-style-type: none; /* Removes bullet points */
+    /* padding: 0;
+    margin: 0; */
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    color: hotpink;
+    text-decoration: none; /* Removes underline from links */
+}
+
+nav ul li a:hover{
+    text-decoration: underline; 
+}
+p+h3:hover{
+    text-decoration: overline;  
+}
+.upvote + button{
+    color: blue;
+    background-color:darkblue;
+}
+div>input{
+    color: grey;
+    background-color: black;
+}
+input[type]{
+    background-color:salmon;
+}
+input[type="text"]{
+    color: green;
+}
+input[type="password"]{
+    color: red;
+}
+button:hover{
+    background-color: black;
+    color: white;
+}
+button:active{
+    background-color: pink;
+}
+p:active{
+    font-weight: bold;
+    color: green;
+}
+
+/* make radiobutton */
+input[type="radio"]:checked+label{    
+    color: green;
+}
+div:nth-of-type(2n){
+    background-color: aquamarine;
+}
+h1::first-letter {
+    color: black;
+}
+p::first-line{
+    color: blue;
+}
+
+p::selection{
+    color: green;
+}

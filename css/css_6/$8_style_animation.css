@@ -1,0 +1,57 @@
+.box{
+    height: 100px;
+    width: 300px;
+    background-color: pink;
+    /* animation-name: fontAnimation;
+    animation-duration: 2s;
+    animation-timing-function: ease-in;
+    animation-delay: 0;
+    animation-iteration-count: infinite;
+    animation-direction: normal; */
+    /* animation-name: colorAnimate; */
+    /* animation: widthAnimate 3s ease-in 0s infinite normal ; */
+    animation: colAnimate 3s ease-in 0s infinite normal ;
+}   
+@media (orientation:landscape){
+    h1{
+        background-color: aqua;
+    }
+}
+@keyframes colAnimate{
+    0%{
+        background-color: green;
+    }
+    50%{
+        background-color: yellow;
+    }
+    100%{
+        background-color: blue;
+    }
+}
+@keyframes fontAnimation {
+    from{
+        font-size: 20px;
+    }
+    to{
+        font-size:40px ;
+    }
+    
+}
+@keyframes colorAnimate {
+    from{
+        background-color: pink;
+    }
+    to{
+        background-color: green;
+    }
+}
+@keyframes widthAnimate {
+    from{
+        width: 0px;
+        background-color: pink;
+    }
+    to{
+        width: 300px;
+        background-color: green;
+    }
+}

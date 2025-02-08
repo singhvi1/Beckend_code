@@ -1,0 +1,152 @@
+/* Basic layout and spacing */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #8e2de2, #4a00e0); /* New gradient background */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    animation: backgroundAnimation 12s ease infinite; /* Smooth background animation */
+}
+
+/* Keyframes for background animation */
+@keyframes backgroundAnimation {
+    0% { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+    50% { background: linear-gradient(135deg, #ffb3b3, #ff6666); }
+    100% { background: linear-gradient(135deg, #8e2de2, #4a00e0); }
+}
+
+/* Container for the Todo List */
+div {
+    background-color: rgba(255, 255, 255, 0.9); /* Soft white background */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    width: 380px;
+    text-align: center;
+    box-sizing: border-box;
+    animation: slideUp 1s ease-out; /* Slide-up animation for the container */
+    backdrop-filter: blur(8px); /* Add blur effect */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Keyframes for slide-up effect */
+@keyframes slideUp {
+    0% { transform: translateY(100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+}
+
+/* Input box */
+input {
+    width: 80%;
+    padding: 12px;
+    margin: 15px 0;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease-in-out, transform 0.3s ease;
+}
+
+/* Input focus effect */
+input:focus {
+    border-color: #ff6f61; /* Soft coral color for focus */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+/* Button style */
+button {
+    background-color: #ff6f61; /* Soft coral button */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 85%;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #ff5733; /* Slightly darker coral */
+    transform: scale(1.05); /* Slight zoom effect on hover */
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* List style */
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 250px;
+    overflow-y: auto;
+    transition: max-height 0.5s ease-in-out;
+}
+
+/* Smooth scrollbar for webkit browsers */
+ul::-webkit-scrollbar {
+    width: 8px;
+}
+
+/* Styling for scrollbar track */
+ul::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+/* Styling for scrollbar thumb */
+ul::-webkit-scrollbar-thumb {
+    background: #ff6f61;
+    border-radius: 10px;
+}
+
+/* List item style */
+li {
+    background-color: #ffe0b3; /* Light pastel yellow for tasks */
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    text-align: left;
+    font-size: 18px;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(10px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* List item hover effect */
+li:hover {
+    transform: translateX(10px);
+    background-color: #ffcc99; /* Slightly darker shade on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* HR divider */
+hr {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+    width: 90%;
+    margin-bottom: 25px;
+}
+
+/* Title */
+h4 {
+    font-size: 24px;
+    color: #333;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

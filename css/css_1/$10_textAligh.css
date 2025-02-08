@@ -1,0 +1,31 @@
+h1{
+    text-align: center;
+    color: red;
+    border: solid;
+    width: 100%;
+    border-color: red;
+    text-decoration:underline;
+    letter-spacing: 10px;
+    font-size:50px;
+
+
+}
+h2{
+    text-align: start;
+    text-decoration: underline   dotted;
+}
+h3{
+    text-align: end;
+    text-decoration: red overline double ;
+}
+p{
+    text-align: justify;
+    /* justify is just used for making spaces for alignment; */
+    font-weight:400 ;
+    /* line height : space between lines */
+    line-height: 2.5; 
+    /* letter spacong -normal/10px */
+}
+a{
+    text-decoration: none ;
+}

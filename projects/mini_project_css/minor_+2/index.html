@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Blogger</title>
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main_box">
+        <!-- Sidebar -->
+        <input type="checkbox" id="check" title="tick">
+        <div class="btn_one">
+            <label for="check">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+        </div>
+        <!-- sidde bar menu  -->
+
+        <div class="sidebar_menu">
+
+            <!-- Logo -->
+            <div class="logo">
+                <a href="#">ThaughtShare</a>
+            </div>
+            <!-- Close Button -->
+            <div class="btn_two">
+                <label for="check">
+                    <i id="closeSidebar" class="fa-solid fa-xmark"></i>
+                </label>
+            </div>
+
+            <!-- Menu Items -->
+            <div class="menu">
+                <ul>
+                    <li>
+                        <a href="#" onclick="showHome()"><i class="fa-solid fa-house"></i> Home</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showNewPost()"><i class="fa-solid fa-file-pen"></i> New Post</a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showMyPosts()"><i class="fa-solid fa-archive"></i> My Blog</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social_media">
+                <ul>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#">
+                        <i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content Area -->
+        <div id="content" class="content-area">
+            <h2>Welcome to ThoughtShare</h2>
+        
+            <p>
+                Share your thoughts and experiences with the world! <br>
+                ThoughtShare is your platform to express, explore, and engage. Share your ideas, stories, or reflections with the world. Whether it's a creative spark, a personal experience, or a thought-provoking question, this is the space to make your voice heard.
+            </p>
+        
+            <blockquote>
+                "The smallest thought can lead to the biggest ideas. Start sharing today!"
+            </blockquote>
+        
+            <!-- Optional Call-to-Action Button -->
+            <button class="new-post-btn" onclick="showNewPost()">
+                <i class="fa-solid fa-file-pen"></i> Create New Post
+            </button>
+        </div>
+        
+        
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

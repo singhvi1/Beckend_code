@@ -1,0 +1,273 @@
+/* General Reset */
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.main_box{
+    background: url('photo.jpg');
+    height: 100vh;
+    background-size: cover;
+}
+
+
+.btn_one i {
+    color:white;
+    font-size: 22px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    /**/
+    /*postion */
+    position: absolute;
+    left: 16px;
+    line-height: 60px;
+}
+#check{
+    display: none;
+}
+
+/* Button Hover Effect */
+.btn_one:hover i {
+    transform: scale(1.1);
+}
+
+/* Main Box */
+.main_box {
+    display: flex;
+}
+
+/* Sidebar */
+.sidebar_menu {
+    position: fixed;
+    left: -300px;
+    height: 100vh;
+    width: 300px;
+    background-color:rgb(255,255,255,.1);
+    transition:all 0.3s linear ;
+    color: rgb(51, 48, 48 ,0.5);
+    box-shadow: 10px 10px 6px rgb(255, 255, 255 , 0.5 );
+    border: 2px solid black;
+
+}
+.sidebar_menu .logo{
+    position:absolute;
+    width: 100%;
+    line-height: 60px; 
+    box-shadow: 0 0 6px rgb(255, 255, 255, .5);
+    height: 60px;
+}
+.sidebar_menu .logo a {
+    position:absolute;
+    left: 50px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+/* Close Button inside Sidebar */
+.sidebar_menu .btn_two i{
+    position: absolute;
+    left:275px;
+    color: grey;
+    font-size: 20px;
+    line-height: 60px;
+    /* opacity: 0; */
+    cursor: pointer;
+    transition: all 0.2 ease;
+
+}
+
+.btn_two i:hover {
+    font-size: 30px;
+}
+.sidebar_menu .menu{
+    position: absolute;
+    width: 100%;
+    top: 80px;
+}
+.sidebar_menu .menu li{
+    margin-top: 6px;
+    padding: 14px 12px;
+}
+.sidebar_menu .menu li a,i{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+
+}
+.sidebar_menu .menu i{
+    padding-right: 8px;
+}
+.sidebar_menu .menu li:hover {
+    box-shadow: 0 0 2px rgb(255, 255, 255,.5);
+}
+/*social media*/
+.social_media{
+    position: absolute;
+    bottom: 5%;
+    left: 20%;
+}
+.social_media i{
+    color: white;
+    opacity: .5;
+    padding: 0 5px;
+}
+.social_media i:hover{
+    opacity: 1;
+    transform: scale(1.5);
+}
+/* #check:checked ~ .btn_one {
+    opacity: 0;
+} */
+
+
+/* Content Area */
+.content-area {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(128, 128, 128, 0.5);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    color: #555;
+    text-align: justify;
+    line-height: 1.6;
+}
+
+/* Heading */
+.content-area h2 {
+    text-align: center;
+    font-size: 36px;
+    color: wheat;
+    margin-bottom: 20px;
+}
+
+/* Paragraph Text */
+.content-area p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 20px 0;
+    color: white;
+}
+
+/* Blockquote */
+.content-area blockquote {
+    font-style: italic;
+    color: #ccc;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    margin: 20px auto;
+}
+
+/* Button */
+.new-post-btn {
+    display: block;
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 20px auto;
+    text-decoration: none;
+    text-align: center;
+}
+
+.new-post-btn:hover {
+    background-color: #222;
+}
+
+
+.new-post-btn i {
+    margin-right: 8px;
+}
+
+.new-post-btn:hover {
+    background-color: #222;
+}
+
+
+/* Text Alignment */
+.content-area p,
+.content-area blockquote {
+    text-align: center;
+}
+
+/* Form for New Post */
+form input[type="text"],
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: all 0.2s ease;
+}
+
+form input[type="text"]:focus,
+form textarea:focus {
+    border-color: #1e90ff;
+    outline: none;
+}
+
+form input[type="submit"] {
+    background: #1e90ff;
+    color: white;
+    padding: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 0 10px rgba(0, 0, 255, 0.3);
+    font-weight: 600;
+}
+
+form input[type="submit"]:hover {
+    background: #0078d7;
+    transform: scale(1.05);
+}
+
+/* Button Press Effect */
+form input[type="submit"]:active {
+    transform: scale(0.95);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .sidebar_menu {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+    }
+
+    .btn_one {
+        padding:0;
+    }
+
+    .content-area {
+        padding: 15px;
+    }
+
+    form input[type="text"],
+    form textarea {
+        font-size: 14px;
+    }
+    
+    .menu li {
+        padding: 10px;
+    }
+}

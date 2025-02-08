@@ -1,0 +1,16 @@
+{
+  "name": "q",
+  "version": "1.0.0",
+  "description": "this is for introducing import export require type :\"modue\" in  pakage.json",
+  "license": "ISC",
+  "author": "Vikash",
+  "type": "module",
+  "main": "math.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "figlet": "^1.8.0"
+  },
+  "devDependencies": {}
+}
