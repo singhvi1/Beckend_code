@@ -9,5 +9,8 @@
   "author": "vikash kumar",
   "license": "ISC",
   "type": "commonjs",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "@faker-js/faker": "^9.4.0"
+  }
 }
