@@ -2,6 +2,14 @@ const { faker } = require("@faker-js/faker");
 const mysql = require("mysql2");
 const express=require("express");
 const app=express();
+const path=require("path");
+const methodOverride =require("method-override");
+
+
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname,"/views"));
+app.use(methodOverride("_method"))
+app.use(express.urlencoded({ extended: true}));
 
 // Create the connection to database
 const connection = mysql.createConnection({
@@ -69,18 +77,68 @@ let getRandomUser = () => {
 // }
 // connection.end();
 
+
+//home route;
 app.get("/",(req, res)=>{
     let q=`SELECT count(*) As total FROM user`;
     try{
         connection.query(q,(err,result)=>{
             if(err) throw err;
-            console.log(result[0].total);
-            res.send(result[0].total.toString());
+            let count=result[0].total;
+            res.render("home.ejs",{count});
         })
     }catch(err){
+        console.log(err)
         res.send("something went wrong");
     }
 })
+
+
+
+//get user:show route
+app.get("/user",(req,res)=>{
+    let q=`SELECT * FROM user`;
+    try{
+        connection.query(q,(err,users)=>{
+            if(err) throw err;
+            // console.log(result);
+            // res.send(result);
+            res.render("showusers.ejs",{users});
+        });
+    }catch(err){
+        console.log(err)
+        res.send("something went wrong");
+    }
+    // res.send("this is user page");
+});
+
+//edit user
+
+app.get("/user/:id/edit",(req,res)=>{
+    let {id}=req.params;
+    let q= `SELECT * FROM user WHERE id ='${id}'`;
+    try{
+        connection.query(q,(err,result)=>{
+            if(err) throw err;
+            // console.log(result[0]);
+            // res.send(result[0]);
+            let user=result[0];
+            res.render("edit.ejs",{user});
+        });
+    }catch(err){
+        console.log(err)
+        res.send("something went wrong");
+    }
+    // console.log(q);
+    // res.send(" i need to edit")
+});
+
+//now after submiting form of edit to need to update in database
+
+app.patch("/user/:id",(req,res)=>{
+    res.send("trying to update ")
+})
+
 
 
 app.listen ("8080", ()=>{
