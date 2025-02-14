@@ -4,6 +4,8 @@ const express=require("express");
 const app=express();
 const path=require("path");
 const methodOverride =require("method-override");
+const { v4: uuidv4 } = require("uuid");
+
 
 
 app.set("view engine", "ejs");
@@ -115,7 +117,7 @@ app.get("/user",(req,res)=>{
 //edit user
 
 app.get("/user/:id/edit",(req,res)=>{
-    let {id}=req.params;
+    let {id}=req.params;           //deconstruct ;
     let q= `SELECT * FROM user WHERE id ='${id}'`;
     try{
         connection.query(q,(err,result)=>{
@@ -136,8 +138,57 @@ app.get("/user/:id/edit",(req,res)=>{
 //now after submiting form of edit to need to update in database
 
 app.patch("/user/:id",(req,res)=>{
-    res.send("trying to update ")
+    let {id}=req.params;
+    let {password :formPass, username: newUsername}=req.body;
+    let q=`SELECT * FROM user WHERE id='${id}'`;  // ${id } must i '' to send it like ?? string in q;
+    try{
+        connection.query(q,(err,result)=>{
+            if(err) throw err;
+            let user=result[0];//user details form db
+            if(formPass != user.password){
+                res.send("wrong password");
+            }else{
+                //we will use nested querie
+                let q2= `UPDATE user SET username='${newUsername}' WHERE id ='${id}'`;
+                connection.query(q2,(err , result)=>{
+                    if(err) throw err;
+                    console.log(result);
+                    res.redirect("/user");
+                })
+                // res.send(user);
+            }
+            
+        });
+    }catch(err){
+        console.log(err)
+        res.send("something went wrong");
+    }
+    
+    // res.send("trying to update ")
 })
+
+
+//ADD user name by :POST
+app.post("/user/add",(req,res)=>{
+    // res.send("wanted to add a user");
+    res.render("add.ejs");  
+})
+app.post("/user/submit",(req,res)=>{
+    let newUserId = uuidv4();
+    // console.log(newUserId);
+    let {username:username ,email:email,password:password}=req.body;
+    // console.log(username,email,password);
+    // let q=`INSERT INTO user (id,username,email,password) VALUES(newUserId,username,email,password)`; // THIS IS WRON WHY ? 
+    let q=`INSERT INTO user (id,username,email,password) VALUES(?,?,?,?)`;
+    let data=[newUserId, username, email, password];
+    connection.query(q,data,(err,result)=>{
+        if(err) throw err;
+        console.log(result);
+        res.send(result);
+    })
+    // res.send("i want to save my data in databse")
+})
+
 
 
 

@@ -8,7 +8,7 @@
 <body>
     <h2>You are about to edit this user :<%=user.email %></h2>
     <form method="post" action="/user/<%=user.id %>?_method=PATCH">
-        <textarea name="Username" id=""><%=user.username %></textarea><br>&nbsp;
+        <textarea name="username"><%=user.username %></textarea>&nbsp;
         <input type="password" name="password" placeholder="enter password">&nbsp;
         <button>Edit</button>
     </form>
