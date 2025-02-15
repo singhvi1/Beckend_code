@@ -28,8 +28,8 @@ const User= mongoose.model("User",userSchema); // user class is created
 // const Employee= mongoose.model("Employee",userSchema);
 
 //05. insert data in user colletion
-const user1=new User({name:"Adam", email:"adam@yahoo.in",age:48});
-const user2=new User({name:"Eve", email:"Eve@google.com",age:48});
+// const user1=new User({name:"Adam", email:"adam@yahoo.in",age:48});
+// const user2=new User({name:"Eve", email:"Eve@google.com",age:48});
 
 // user2
 //     .save()
@@ -65,7 +65,7 @@ const user2=new User({name:"Eve", email:"Eve@google.com",age:48});
 //   console.log(err);
 // });
 
-// User.findById({_id:"67ae0c797c39a679157f69c3"})
+// User.findById("67ae0c797c39a679157f69c3")
 // .then((res)=>{
 //   console.log(res)
 // })
@@ -94,7 +94,51 @@ const user2=new User({name:"Eve", email:"Eve@google.com",age:48});
 
   //09.Model.findOneAndUpdate({filter})
 
-  User.findOneAndUpdate()
+//   User.findOneAndUpdate({name:"Bruce"},{age:35})
+// .then((res)=>{
+//   console.log(res)
+// })
+// .catch((err)=>{
+//   console.log(err)
+// }); // still printing the old value 
+
+// User.findOneAndUpdate({name:"Bruce"},{age:42},{new : true})
+// .then((res)=>{
+//   console.log(res)
+// })
+// .catch((err)=>{
+//   console.log(err)
+// });
+
+//10.Delete :Model.deleteOne({filter}) and Model.deleteMany() both return query
 
 
+// User.deleteOne({name:"Bruce"})
+// .then((res)=>{
+//   console.log(res)
+// })
+// .catch((err)=>{
+//   console.log(err)
+// });
+
+// const user3=new User({name:"Bruce",email:"bruce@gmail.com",age:42})
+// user3.save()
+// .then((res)=>{
+//   console.log(res)
+// })
+
+// User.insertMany([
+//   {name:"Bruce",email:"bruce@gmail.com",age:47},
+//   {name:"Bruce",email:"bruce@gmail.com",age:47}
+// ])
+
+// User.findByIdAndDelete('67b0936c50d3f23fa855f00a')
+// .then((res)=>{
+//   console.log(res)
+// })
+// .catch((err)=>{
+//   console.log(err)
+// });
+
+//11.user schema constraint: schema validation 
 
