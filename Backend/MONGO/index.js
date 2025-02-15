@@ -31,18 +31,70 @@ const User= mongoose.model("User",userSchema); // user class is created
 const user1=new User({name:"Adam", email:"adam@yahoo.in",age:48});
 const user2=new User({name:"Eve", email:"Eve@google.com",age:48});
 
-user2
-    .save()
-    .then((res)=>{
-        console.log(res)
-    })
-    .catch((err)=>{
-        console.log(err)
-    });
-User.insertMany([
-    {name:"Tony",email:"tony@gmail.com",age:50},
-    {name:"Peter",email:"peter@gmail.ocm",age:30},
-    {name:"Bruce",email:"bruce@gmail.com",age:47},
-]).then((res)=>{
-    console.log(res);
-})
+// user2
+//     .save()
+//     .then((res)=>{
+//         console.log(res)
+//     })
+//     .catch((err)=>{
+//         console.log(err)
+//     });
+// User.insertMany([
+//     {name:"Tony",email:"tony@gmail.com",age:50},
+//     {name:"Peter",email:"peter@gmail.ocm",age:30},
+//     {name:"Bruce",email:"bruce@gmail.com",age:47},
+// ]).then((res)=>{
+//     console.log(res);
+// });
+
+
+// 07.find():db.collections.find();
+
+// User.find({age : {$gt:47}})
+// .then((res)=>{
+//   console.log(res)
+// })
+// .catch((err)=>{
+//   console.log(err);
+// });
+// User.find({_id:"67ae0c797c39a679157f69c3"})
+// .then((res)=>{
+//   console.log(res)
+// })
+// .catch((err)=>{
+//   console.log(err);
+// });
+
+// User.findById({_id:"67ae0c797c39a679157f69c3"})
+// .then((res)=>{
+//   console.log(res)
+// })
+// .catch((err)=>{
+//   console.log(err);
+// });
+
+//08.UpdateOne();
+
+//model.updateOne({filter},{update}); and model.updateMany();
+// User.updateOne({name:"Tony"} , {age:40})
+//   .then((res)=>{
+//     console.log(res);
+// })
+//   .catch((err)=>{
+//     console.log(err);
+//   })
+
+// User.updateMany({age:{$gt :47}} , {age:55})
+//   .then((res)=>{
+//     console.log(res);
+// })
+//   .catch((err)=>{
+//     console.log(err);
+//   })
+
+  //09.Model.findOneAndUpdate({filter})
+
+  User.findOneAndUpdate()
+
+
+
