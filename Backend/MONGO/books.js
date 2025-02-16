@@ -24,7 +24,8 @@ const bookSchema = new  mongoose.Schema({
     },
     Price:{
         type:Number,
-        min:1
+        // min:1   //  if we need custom error then 
+        min:[1, "set value price should be >=1"]
     },
     discount:{
         default:0,  // if we dont define it will be default as 0;
@@ -87,5 +88,14 @@ let book4= new Book({
  
  //validation in update and error ,
 
- 
+ /*
+    so the rules or constraint  that we define in schema only work while insertion not updataion let check  */
+    //updat Modle.findByIdAndUpdate("id",{update})
+
+    Book.findByIdAndUpdate("67b0b2048262913ae99ed481",{Price: -100},{runValidators:true})
+    .then((result) => {
+        console.log(result)
+    }).catch((err) => {
+        console.log(err.errors.Price.properties.message)
+    });
 
