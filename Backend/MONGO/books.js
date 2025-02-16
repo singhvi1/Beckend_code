@@ -25,7 +25,7 @@ const bookSchema = new  mongoose.Schema({
     Price:{
         type:Number,
         // min:1   //  if we need custom error then 
-        min:[1, "set value price should be >=1"]
+        min:[1, `Price should be greater than 1`]
     },
     discount:{
         default:0,  // if we dont define it will be default as 0;
@@ -73,18 +73,18 @@ const Book = mongoose.model("Book",bookSchema);
 //  }).catch((err) => {
 //     console.log(err)
 //  })
-let book4= new Book({
-    title:"Marverl comics V2", // cant be more than 20 cah
-    Price:500,
-    category:"fiction",
-    genre:["comics", "superhero","fiction"]
- });
- book4.save()
- .then((result) => {
-    console.log(result)
- }).catch((err) => {
-    console.log(err)
- })
+// let book4= new Book({
+//     title:"Marverl comics V2", // cant be more than 20 cah
+//     Price:500,
+//     category:"fiction",
+//     genre:["comics", "superhero","fiction"]
+//  });
+//  book4.save()
+//  .then((result) => {
+//     console.log(result)
+//  }).catch((err) => {
+//     console.log(err)
+//  })
  
  //validation in update and error ,
 
@@ -92,10 +92,10 @@ let book4= new Book({
     so the rules or constraint  that we define in schema only work while insertion not updataion let check  */
     //updat Modle.findByIdAndUpdate("id",{update})
 
-    Book.findByIdAndUpdate("67b0b2048262913ae99ed481",{Price: -100},{runValidators:true})
+    Book.findByIdAndUpdate("67b1b5d3376a76e780501c5b",{Price: -100},{runValidators:true})
     .then((result) => {
         console.log(result)
-    }).catch((err) => {
+    }).catch((err) => { 
         console.log(err.errors.Price.properties.message)
     });
 
