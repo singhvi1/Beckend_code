@@ -6,6 +6,7 @@ const Chat = require("./models/chat.js");
 
 app.set("views",path.join(__dirname, "views"));
 app.set("view engine" , "ejs");
+app.use(express.static(path.join(__dirname,"public")))
 
 async function main(){
     await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
@@ -18,20 +19,22 @@ main()
 });
 
 
+ // 03.=> to add data by init.js to add data to database;
 
-
-let Chat1=new Chat({
-    from :"neha",
-    to:"priya",
-    msg:"i am vikash kumar",
-    created_at:new Date()
-})
-Chat1.save()
-.then((result) => {
-    console.log(result)
-}).catch((err) => {
-    console.log(err)
+//04.=> creating index Route;  we will make a /chats
+app.get("/chats", async (req,res)=>{    
+    let chats = await Chat.find();
+    console.log(chats);
+    res.render("index.ejs",{chats})
 });
+
+
+
+
+
+
+
+
 
 
 app.get("/",(req,res)=>{
