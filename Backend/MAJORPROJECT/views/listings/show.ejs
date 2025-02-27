@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WanderLust_Individual_data</title>
+</head>
+<body>
+    <h3>Listing  Details</h3>
+    <ul>
+        <li><%=listing.title %></li>
+        <li><%=listing.description %></li>
+        <li> &#x20b9; <%= listing.price.toLocaleString("en-IN") %></li>
+        <li><%=listing.location %></li>
+        <li><%=listing.country %></li>
+    </ul><br>
+    <div class="action-buttons">
+        <a href="/listings/<%=listing._id %>/edit">Edit</a>
+    <form action="/listings/<%=listing._id %>?_method=DELETE" method="POST">
+        <button>DELETE this listing</button>
+    </form>
+    </div>
+    <style>
+        .action-buttons{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .action-buttons form {
+        margin: 0; /* Remove default margin */
+    }
+    </style>
+</body>
+</html>
