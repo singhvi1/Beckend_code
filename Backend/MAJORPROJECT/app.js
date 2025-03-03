@@ -4,12 +4,15 @@ const mongoose=require("mongoose");
 const Listing =require("../MAJORPROJECT/models/listing.js") 
 const path=require("path");
 const methodOverride=require("method-override");
+const ejsMate=require("ejs-mate");
 
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
 app.use(express.urlencoded({extended:true}));//to parse all data
 app.use(methodOverride("_method"));
+app.engine('ejs',ejsMate)
+app.use(express.static(path.join(__dirname,"/public" )));
 
 //05.index Route
 app.get("/listings",async (req,res)=>{
