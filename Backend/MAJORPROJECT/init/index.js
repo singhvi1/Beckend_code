@@ -16,6 +16,7 @@ const initDB=async ()=>{
     await Listing.deleteMany({});
     await Listing.insertMany(initData.data)
     console.log("data was initilised");
+    mongoose.connection.close();
 }
 
 initDB();

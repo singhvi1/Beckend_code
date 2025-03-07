@@ -18,7 +18,6 @@ app.use(express.static(path.join(__dirname,"/public" )));
 app.get("/listings",async (req,res)=>{
     const allListing=await Listing.find({});
     res.render("listings/index.ejs",{allListing});
-    // res.send("i want a list");
 })
 //07.create new listing : New Route at //listings/new
 app.get("/listings/new",(req,res)=>{
@@ -68,12 +67,13 @@ app.delete("/listings/:id",async (req,res)=>{
 
 
 //why 7 is up 6 and not give error ? bcz server  think /listing/new === /listing/:id where (new == id)
+
+
 //06.Show route
 app.get("/listings/:id", async(req,res)=>{
     let {id} =req.params;
     const listing= await Listing.findById(id);
     res.render("listings/show.ejs",{listing});
-    // res.send("i need each information")
 })
 
 
