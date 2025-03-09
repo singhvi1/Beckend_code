@@ -8,13 +8,14 @@
 <body>
     <h3>Edit your listing</h3>
     <form action="/listings/<%=listing._id %>?_method=PUT" method="post"> 
-        <!-- query string ?_method=PUT -->
-        title : <input type="text" value=<%=listing.title%> name="listing[title]"><br><br><br>
+        <!-- query string-> ?_method=PUT -->
+        title : <input type="text" value="<%=listing.title%>" name="listing[title]"><br><br><br>
         description : <textarea name="listing[description]" rows="6" cols="20"><%=listing.description%></textarea><br><br><br>
-        image: <input type="text"  name="listing[image]" value=<%=listing.image%>><br><br><br>
-        Price: <input type="text" value=<%=listing.price%> name="listing[price]"><br><br><br>
-        location: <input type="text" name="listing[location]" value=<%=listing.location%>><br><br><br>
-        country: <input type="text" name="listing[country]" value=<%=listing.country%>>
+        image: <input type="text" name="listing[image]" value="<%=listing.image%>">
+        <br><br>
+        Price: <input type="text" value="<%=listing.price%>" name="listing[price]"><br><br><br>
+        location: <input type="text" name="listing[location]" value="<%=listing.location%>"><br><br><br>
+        country: <input type="text" name="listing[country]" value="<%=listing.country%>">
         <button>Edit</button>
     </form>
 </body>

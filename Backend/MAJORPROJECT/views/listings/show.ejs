@@ -3,8 +3,8 @@
 <body>
     <h3>Listing  Details</h3>
     <div class="listing-container">
-        <% if (listing.image && listing.image.url) { %>
-            <img src="<%= listing.image.url %>" alt="Listing Image">
+        <% if (listing.Image && listing.Image.url) { %>
+            <img src="<%= listing.Image.url %>" alt="Listing Image">
         <% } else { %>
             <p>No image available</p>
         <% } %>        
@@ -34,7 +34,8 @@
             box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
         }
         .listing-container img {
-            width: 100%;
+            width: 80%;
+            height: 350px;
             border-radius: 10px;
             margin-bottom: 10px;
         }

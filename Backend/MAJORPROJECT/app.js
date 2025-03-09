@@ -9,7 +9,7 @@ const ejsMate=require("ejs-mate");
 
 app.set("view engine","ejs");
 app.set("views",path.join(__dirname,"views"));
-app.use(express.urlencoded({extended:true}));//to parse all data
+app.use(express.urlencoded({extended:true}));//to parse all data from a html form
 app.use(methodOverride("_method"));
 app.engine('ejs',ejsMate)
 app.use(express.static(path.join(__dirname,"/public" )));
@@ -28,15 +28,14 @@ app.get("/listings/new",(req,res)=>{
 //create Route
 app.post("/listings",async (req,res)=>{
     // let {title,description,image,location,country}=req.body;
-    // console.log(req.body); //this is method 1;
+    // console.log(req.body); //this is method 1;name=title
 
-    //method 2 :  make all  variable a object key in new.ejs;
+    //method 2 :  make all  variable a object key in new.ejs;name=listing[title]
     // let listings=req.body.listing;
     // console.log(listings);
     const newListing=new Listing(req.body.listing);
     await newListing.save();
     res.redirect("/listings");
-    // res.send("i want to save the data coming from form")
 }) ;
 
 //08.UPDATE:(edit and update route)
@@ -73,6 +72,7 @@ app.delete("/listings/:id",async (req,res)=>{
 app.get("/listings/:id", async(req,res)=>{
     let {id} =req.params;
     const listing= await Listing.findById(id);
+    console.log(listing);
     res.render("listings/show.ejs",{listing});
 })
 
