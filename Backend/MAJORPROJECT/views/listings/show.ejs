@@ -1,55 +1,40 @@
-<% layout('/layouts/boilerplate') -%> 
+<% layout('/layouts/boilerplate') -%>
+    <div class="container mt-4">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card ">
+                    <img src="<%=listing.image.url %>" class="card-img-top show-img" alt="listing-image">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">
+                            <%=listing.title %>
+                        </p>
+                        <ul>
+                            <li>
+                                <%=listing.title %>
+                            </li>
+                            <li>
+                                <%=listing.description %>
+                            </li>
+                            <li> &#x20b9; <%= listing.price.toLocaleString("en-IN") %>
+                            </li>
+                            <!-- &#x20b9; is rupee symbol -->
+                            <li>
+                                <%=listing.location %>
+                            </li>
+                            <li>
+                                <%=listing.country %>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="btns d-flex justify-content-center gap-3 mb-4">
+                    <a class="btn btn-primary" href="/listings/<%= listing._id %>/edit">Edit</a>
+                    <form action="/listings/<%= listing._id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                </div>
 
-<body>
-    <h3>Listing  Details</h3>
-    <div class="listing-container">
-        
-        <ul>
-            <li><%=listing.title %></li>
-            <li><%=listing.description %></li>
-            <li> &#x20b9; <%= listing.price.toLocaleString("en-IN") %></li>
-            <!-- &#x20b9; is rupee symbol -->
-            <li><%=listing.location %></li>
-            <li><%=listing.country %></li>
-        </ul><br>
+            </div>
+        </div>
     </div>
-    <div class="action-buttons">
-        <a href="/listings/<%=listing._id %>/edit">Edit</a>
-    <form action="/listings/<%=listing._id %>?_method=DELETE" method="POST">
-        <button>DELETE this listing</button>
-    </form>
-    </div>
-    <style>
-        .listing-container {
-            max-width: 600px;
-            margin: auto;
-            text-align: left;
-            border: 1px solid #ccc;
-            padding: 15px;
-            border-radius: 10px;
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
-        }
-        .listing-container img {
-            width: 80%;
-            height: 350px;
-            border-radius: 10px;
-            margin-bottom: 10px;
-        }
-        .action-buttons{
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-top: 10px;
-        }
-        .action-buttons a {
-            padding: 8px 12px;
-            background: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-        .action-buttons form {
-        margin: 0; /* Remove default margin */
-    }
-    </style>
-</body>
