@@ -12,12 +12,13 @@ const chatSchema= new mongoose.Schema({
     },
     msg:{
         type:String,
-        kMaxLength:50
+        MaxLength:50
     },
     created_at:{
-        type:Date
+        type:Date,
+        default:Date.now()
     }
 })
 
-const Chat=mongoose.model("chat",chatSchema);
+const Chat=mongoose.model("chat",chatSchema);   // here chat is the collection name and Chat is the model name 
 module.exports=Chat;

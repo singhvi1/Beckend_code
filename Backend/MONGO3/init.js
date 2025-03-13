@@ -1,8 +1,8 @@
 const mongoose= require('mongoose') ;
-const Chat = require("./models/chat.js");
+const Chat = require("./models/chat.js"); //for ? 
 
 
-//connection to db
+//connection of mongoos to db
 async function main(){
     await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
 }

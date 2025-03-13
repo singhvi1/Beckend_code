@@ -11,6 +11,7 @@ app.use(express.static(path.join(__dirname,"public")))
 app.use(express.urlencoded({extended:true}))
 app.use(methodOverride("_method"))
 
+//setting monogoDb
 async function main(){
     await mongoose.connect('mongodb://127.0.0.1:27017/whatsapp');
 }
@@ -20,14 +21,23 @@ main()
 }).catch((err) => {
     console.log(err)
 });
+// add a single data to db;
+const chat1=new Chat(
+    { from: "vikash", to: "vimal", msg: "Hi i am vikash from Barh" },
 
+)
+chat1.save().then(() => {
+    console.log("chat saved")
+}).catch((err) => {
+    console.log(err)
+});
 
- // 03.=> to add data by init.js to add data to database;
+ // 03.=> to add data by init.js to add data to database; node init.js
 
 //04.=> creating index Route;  we will make a /chats   : index Route
 app.get("/chats", async (req,res)=>{    
     let chats = await Chat.find();
-    console.log(chats);
+    // console.log(chats);
     res.render("index.ejs",{chats})
 });
 
@@ -40,7 +50,8 @@ app.get("/chats/new",(req,res)=>{
 //06.=>Creating Routing 
 
 app.post("/chats",(req,res)=>{
-    let {from , to , msg}=req.body;   // we need to parse it by wiriting something ? ? ? 
+    let {from , to , msg}=req.body;   // we need to parse it by wiriting something ? ? ? By default, Express does not parse req.body from an HTML form.
+    //👉 Solution: Use express.urlencoded() middleware.
     let nwChat=new Chat({
         from:from,
         to:to,
@@ -48,7 +59,7 @@ app.post("/chats",(req,res)=>{
         created_at:new Date()
     })
     nwChat.save()
-    .then((result) => {
+    .then(() => {
         console.log("chat saved");
     }).catch((err) => {
         console.log(err)
