@@ -21,33 +21,28 @@ main()
 }).catch((err) => {
     console.log(err)
 });
-// add a single data to db;
-const chat1=new Chat(
-    { from: "vikash", to: "vimal", msg: "Hi i am vikash from Barh" },
 
-)
-chat1.save().then(() => {
-    console.log("chat saved")
-}).catch((err) => {
-    console.log(err)
-});
 
- // 03.=> to add data by init.js to add data to database; node init.js
-
-//04.=> creating index Route;  we will make a /chats   : index Route
+//index Route;
 app.get("/chats", async (req,res)=>{    
     let chats = await Chat.find();
     // console.log(chats);
     res.render("index.ejs",{chats})
 });
 
+//show route : 
+app.get("/chat/:id", async (req,res)=>{
+    let {id}=req.params;
+    let chat=await Chat.findById(id);
+    res.render("edit.js",{chat});
+})
 
-//05.=>Creating Get request: New Route
+//Creating Get request: New Route
 app.get("/chats/new",(req,res)=>{
     res.render("new.ejs");
 })
 
-//06.=>Creating Routing 
+//Creating Routing  post 
 
 app.post("/chats",(req,res)=>{
     let {from , to , msg}=req.body;   // we need to parse it by wiriting something ? ? ? By default, Express does not parse req.body from an HTML form.
